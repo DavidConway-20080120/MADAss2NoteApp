@@ -7,60 +7,55 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/button_exit"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="150dp"
         android:backgroundTint="#F44336"
         android:text="Exit"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button19" />
+        app:layout_constraintTop_toBottomOf="@+id/button_newGroup" />
 
     <Button
-        android:id="@+id/button19"
+        android:id="@+id/button_newGroup"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
         android:backgroundTint="#03A9F4"
         android:text="New Group"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/button20"
+        app:layout_constraintBottom_toTopOf="@+id/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button17" />
+        app:layout_constraintTop_toBottomOf="@+id/button_newText" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/button_group"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="50dp"
         android:backgroundTint="#03A9F4"
         android:text="Groups"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/button17"
+        app:layout_constraintBottom_toTopOf="@+id/button_newText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/button_newText"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
         android:backgroundTint="#03A9F4"
         android:text="New Text"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/button19"
+        app:layout_constraintBottom_toTopOf="@+id/button_newGroup"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button16" />
+        app:layout_constraintTop_toBottomOf="@+id/button_group" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
