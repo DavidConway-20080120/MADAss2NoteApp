@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MADAss2NoteApp</string>
+
+    <string name="button_back">Back</string>
+    <string name="button_exit">Exit</string>
+    <string name="button_save">Save</string>
+
+    <string name="button_groups">Groups</string>
+    <string name="button_notes">Notes</string>
+
+    <string name="button_newNote">New Note</string>
+    <string name="button_newGroup">New Group</string>
+
+    <string name="textInput_title">Title</string>
+    <string name="textInput_content">Note</string>
+
+    <string name="imageButton_text">voice to text</string>
 </resources>

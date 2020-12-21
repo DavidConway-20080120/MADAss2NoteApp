@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp">
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/button_moveBack"
+        android:text="@android:string/cancel"
+        app:layout_constraintBottom_toTopOf="@+id/input_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_title"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/select_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cancel">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputTitle_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/input_outline"
+            android:hint="@string/textInput_title"
+            android:textAlignment="center"
+            android:textAllCaps="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/select_group"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:background="@drawable/input_outline"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_title" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/button_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_group">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_content"
+            android:layout_width="300dp"
+            android:layout_height="150dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputContent_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/input_outline"
+                android:hint="@string/textInput_content"
+                android:textAlignment="center"
+                android:textAllCaps="false" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/button_vtt"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/button_moveForword"
+            android:contentDescription="@string/imageButton_text"
+            app:srcCompat="@drawable/mic" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/button_createUpdate"
+        android:text="@string/button_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
