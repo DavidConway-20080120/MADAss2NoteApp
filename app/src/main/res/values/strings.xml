@@ -11,7 +11,9 @@
     <string name="button_newNote">New Note</string>
     <string name="button_newGroup">New Group</string>
 
-    <string name="textInput_title">Title</string>
+    <string name="textInput_groupTitle"> Group Title</string>
+    <string name="textInput_noteTitle"> Note Title</string>
+
     <string name="textInput_content">Note</string>
 
     <string name="imageButton_text">voice to text</string>
