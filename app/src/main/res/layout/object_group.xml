@@ -13,21 +13,22 @@
         android:backgroundTint="@color/button_moveBack"
         android:text="@string/button_back"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/button_notes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/input_title"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2">
+        app:layout_constraintTop_toBottomOf="@+id/button_notes">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputTitle_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/input_outline"
@@ -36,19 +37,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_notes"
         android:layout_width="300dp"
         android:layout_height="75dp"
         android:backgroundTint="@color/button_moveForword"
         android:text="@string/button_notes"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@+id/input_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_back" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_delete"
         android:layout_width="300dp"
         android:layout_height="75dp"
         android:backgroundTint="@color/button_moveBack"
@@ -56,6 +57,7 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/input_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>
