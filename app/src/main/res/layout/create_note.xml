@@ -23,6 +23,7 @@
         android:id="@+id/input_title"
         android:layout_width="300dp"
         android:layout_height="75dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/select_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
