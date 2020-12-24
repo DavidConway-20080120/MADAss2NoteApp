@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".GroupMenuActivity"></activity>
+        <activity android:name=".CreateGroupActivity"></activity>
+        <activity android:name=".CreateNoteActivity"></activity>
+        <activity android:name=".GroupObjectActivity"></activity>
+        <activity android:name=".NoteMenuActivity"></activity>
+        <activity android:name=".NoteObjectActivity"></activity>
     </application>
 
 </manifest>
