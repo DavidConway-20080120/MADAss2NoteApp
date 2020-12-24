@@ -13,5 +13,11 @@ class CreateGroupActivity : AppCompatActivity() {
             setResult(AppCompatActivity.RESULT_OK)
             finish()
         }
+
+        button_cancel.setOnClickListener{
+            setResult(AppCompatActivity.RESULT_CANCELED)
+            finish()
+        }
     }
+
 }

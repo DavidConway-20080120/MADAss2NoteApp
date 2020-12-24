@@ -9,7 +9,7 @@ import java.io.Console
 class NoteTakerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notetaker)
+        setContentView(R.layout.activity_notetaker) // not a error for some reason it wants to give it a cap T
 
         //gose to group menu
         button_group.setOnClickListener{
