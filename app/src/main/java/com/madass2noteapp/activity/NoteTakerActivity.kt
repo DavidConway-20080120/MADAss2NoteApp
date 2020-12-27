@@ -6,6 +6,9 @@ import android.os.Bundle
 import com.madass2noteapp.R
 import kotlinx.android.synthetic.main.activity_notetaker.*
 
+/**
+ * main screen
+ */
 class NoteTakerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,18 +22,21 @@ class NoteTakerActivity : AppCompatActivity() {
             finish()
         }
 
+        //create new note
         button_newText.setOnClickListener{
             val intent = Intent(this,
                 CreateNoteActivity::class.java)
             startActivityForResult(intent, AppCompatActivity.RESULT_OK);
         }
 
+        //create new group
         button_newGroup.setOnClickListener{
             val intent = Intent(this,
                 CreateGroupActivity::class.java)
             startActivityForResult(intent, AppCompatActivity.RESULT_OK);
         }
 
+        //button exit
         button_exit.setOnClickListener{
             finish();
             System.exit(0);

@@ -22,7 +22,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_groups"
         android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:scrollbars="vertical"
         android:textAlignment="center"

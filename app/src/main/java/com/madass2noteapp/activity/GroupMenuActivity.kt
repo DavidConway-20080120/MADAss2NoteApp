@@ -15,17 +15,23 @@ import kotlinx.android.synthetic.main.activity_notetaker.*
 import kotlinx.android.synthetic.main.list_item.view.*
 import kotlinx.android.synthetic.main.menu_group_.*
 
+/**
+ * screen for listing all groups
+ */
 class GroupMenuActivity  : AppCompatActivity(), testListener{
     lateinit var app : MainApp
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_group_)
-        app = application as MainApp
+        app = application as MainApp //database acces
 
+        //sets up recycler
         val layoutManager = LinearLayoutManager(this)
         recycler_groups.layoutManager = layoutManager
         recycler_groups.adapter = testAddapter(app.test, this)
 
+        //back button
         button_back.setOnClickListener{
             val intent = Intent(this,
                 NoteTakerActivity::class.java)
@@ -34,6 +40,7 @@ class GroupMenuActivity  : AppCompatActivity(), testListener{
         }
     }
 
+    //recycler button
     override fun onTestClick(testThing: String) {
         val intent = Intent(this,
             GroupObjectActivity::class.java)

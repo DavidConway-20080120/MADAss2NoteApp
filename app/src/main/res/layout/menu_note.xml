@@ -7,28 +7,27 @@
     android:layout_height="match_parent" >
 
     <Button
-        android:id="@+id/button_back"
+        android:id="@+id/button_back_notemenu"
         android:layout_width="300dp"
         android:layout_height="75dp"
         android:backgroundTint="@color/button_moveBack"
         android:text="@string/button_back"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_groups"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_notes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_notes"
         android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:scrollbars="vertical"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_back" />
+        app:layout_constraintTop_toBottomOf="@+id/button_back_notemenu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
