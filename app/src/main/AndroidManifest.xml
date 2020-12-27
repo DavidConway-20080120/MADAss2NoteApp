@@ -3,25 +3,26 @@
     package="com.madass2noteapp">
 
     <application
+        android:name = ".mainApp.MainApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NoteTakerActivity">
+        <activity android:name=".activity.NoteTakerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GroupMenuActivity"></activity>
-        <activity android:name=".CreateGroupActivity"></activity>
-        <activity android:name=".CreateNoteActivity"></activity>
-        <activity android:name=".GroupObjectActivity"></activity>
-        <activity android:name=".NoteMenuActivity"></activity>
-        <activity android:name=".NoteObjectActivity"></activity>
+        <activity android:name=".activity.GroupMenuActivity"></activity>
+        <activity android:name=".activity.CreateGroupActivity"></activity>
+        <activity android:name=".activity.CreateNoteActivity"></activity>
+        <activity android:name=".activity.GroupObjectActivity"></activity>
+        <activity android:name=".activity.NoteMenuActivity"></activity>
+        <activity android:name=".activity.NoteObjectActivity"></activity>
     </application>
 
 </manifest>

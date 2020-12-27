@@ -13,7 +13,7 @@
         android:backgroundTint="@color/button_moveBack"
         android:text="@string/button_back"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_notes"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_groups"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
