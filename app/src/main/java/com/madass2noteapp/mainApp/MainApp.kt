@@ -12,6 +12,9 @@ class MainApp : Application(), databaseInterface{
 
     override fun onCreate() {
         super.onCreate()
+        createGroup(Group("test 1"))
+        createGroup(Group("test 2"))
+        createGroup(Group("test 3"))
 
     }
 
