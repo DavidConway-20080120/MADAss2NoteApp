@@ -43,6 +43,7 @@ class GroupObjectActivity : AppCompatActivity() {
         button_notes.setOnClickListener{
             val intent = Intent(this,
                 NoteMenuActivity::class.java)
+            intent.putExtra("group_info", group)
             startActivity(intent);
             finish()
         }

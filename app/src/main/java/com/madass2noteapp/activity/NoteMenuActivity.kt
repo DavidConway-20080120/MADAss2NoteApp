@@ -9,37 +9,47 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madass2noteapp.R
+import com.madass2noteapp.dataClasses.Group
+import com.madass2noteapp.dataClasses.Note
 import com.madass2noteapp.mainApp.MainApp
 import kotlinx.android.synthetic.main.list_item.view.*
 import kotlinx.android.synthetic.main.menu_group_.*
 import kotlinx.android.synthetic.main.menu_note.*
+import kotlinx.android.synthetic.main.object_group.*
 
 /**
  * list all notes in curent group
  */
-class NoteMenuActivity : AppCompatActivity(), testListener2 {
+class NoteMenuActivity : AppCompatActivity(), NoteListener {
     lateinit var app : MainApp
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_note)
         app = application as MainApp // database accsess
+        var group :Group = Group()
+
+        if(intent.hasExtra("group_info")){
+            val groupTitle = intent.extras?.getParcelable<Group>("group_info")?.title
+            group = app.getGroup(groupTitle)!! // use the title of the group passed in to find group object in data base.
+        }
 
         // sets up recycler
-        /*val layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(this)
         recycler_notes.layoutManager = layoutManager
-        recycler_notes.adapter = testAddapter2(app.test, this)*/
+        recycler_notes.adapter = NoteAddapter(group.notes, this)
 
         //back button
         button_back_notemenu.setOnClickListener{
             val intent = Intent(this,
                 GroupObjectActivity::class.java)
+            intent.putExtra("group_view",group)
             startActivity(intent);
             finish()
         }
     }
 
     //list button
-    override fun onTestClick(testThing: String) {
+    override fun onNoteClick(note: Note) {
         val intent = Intent(this,
             NoteObjectActivity::class.java)
         startActivity(intent);
@@ -47,11 +57,11 @@ class NoteMenuActivity : AppCompatActivity(), testListener2 {
     }
 }
 
-interface testListener2 {
-    fun onTestClick(testThing: String)
+interface NoteListener {
+    fun onNoteClick(note: Note)
 }
-class testAddapter2 constructor(private var tests: List<String>, private val listener: testListener2):
-    RecyclerView.Adapter<testAddapter2.MainHolder>(){
+class NoteAddapter constructor(private var Notes: List<Note>, private val listener: NoteListener):
+    RecyclerView.Adapter<NoteAddapter.MainHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -63,17 +73,17 @@ class testAddapter2 constructor(private var tests: List<String>, private val lis
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val test = tests[holder.adapterPosition]
-        holder.bind(test, listener)
+        val note = Notes[holder.adapterPosition]
+        holder.bind(note, listener)
     }
 
-    override fun getItemCount(): Int = tests.size
+    override fun getItemCount(): Int = Notes.size
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(placemark: String, listener: testListener2) {
-            itemView.list_Item.text = placemark
-            itemView.setOnClickListener {  listener.onTestClick(placemark)}
+        fun bind(note: Note, listener: NoteListener) {
+            itemView.list_Item.text = note.title
+            itemView.setOnClickListener {  listener.onNoteClick(note)}
         }
     }
 }

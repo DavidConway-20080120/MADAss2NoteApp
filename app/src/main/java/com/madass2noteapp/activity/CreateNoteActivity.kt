@@ -1,7 +1,9 @@
 package com.madass2noteapp.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.madass2noteapp.R
@@ -10,17 +12,29 @@ import com.madass2noteapp.dataClasses.Note
 import com.madass2noteapp.mainApp.MainApp
 import kotlinx.android.synthetic.main.activity_notetaker.*
 import kotlinx.android.synthetic.main.create_note.*
+import kotlinx.android.synthetic.main.create_note.button_cancel
+import kotlinx.android.synthetic.main.create_note.button_save
+import kotlinx.android.synthetic.main.create_note.button_vtt
+import kotlinx.android.synthetic.main.create_note.inputContent_text
+import kotlinx.android.synthetic.main.create_note.inputTitle_text
+import kotlinx.android.synthetic.main.create_note.select_group
+import kotlinx.android.synthetic.main.object_note.*
+import java.lang.Exception
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * This screen is fo creating new notes
  */
 class CreateNoteActivity  : AppCompatActivity() {
     lateinit var app : MainApp
+    private val REQUEST_CODE_SPEECH_INPUT = 100
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_note)
         app = application as MainApp //database acces
         var note = Note()
+
         /**
          * save button
          */
@@ -49,6 +63,22 @@ class CreateNoteActivity  : AppCompatActivity() {
         button_cancel.setOnClickListener{
             setResult(AppCompatActivity.RESULT_CANCELED)
             finish()
+        }
+
+        //voice to text button
+        button_vtt.setOnClickListener{
+            //sets up and exicute text to speach request
+            val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "what is your note")
+
+            try{
+                startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT )
+            }
+            catch (e: Exception){
+                inputContent_text.setText("an error has occurred")
+            }
         }
 
         setupGroupList()
