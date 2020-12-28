@@ -27,7 +27,8 @@ class GroupObjectActivity : AppCompatActivity() {
         app = application as MainApp //database acces
 
         if(intent.hasExtra("group_view")){
-            group = app.getGroup(intent.extras?.getParcelable<Group>("group_view")?.title)!! // use the title of the group passed in to find group object in data base. not sure why the package group dosent work
+            val groupTitle = intent.extras?.getParcelable<Group>("group_view")?.title
+            group = app.getGroup(groupTitle)!! // use the title of the group passed in to find group object in data base.
             inputTitle_text.setText(group.title)
         }
         //bacl button
