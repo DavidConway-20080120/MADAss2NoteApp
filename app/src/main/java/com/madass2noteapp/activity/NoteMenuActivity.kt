@@ -25,9 +25,9 @@ class NoteMenuActivity : AppCompatActivity(), testListener2 {
         app = application as MainApp // database accsess
 
         // sets up recycler
-        val layoutManager = LinearLayoutManager(this)
+        /*val layoutManager = LinearLayoutManager(this)
         recycler_notes.layoutManager = layoutManager
-        recycler_notes.adapter = testAddapter2(app.test, this)
+        recycler_notes.adapter = testAddapter2(app.test, this)*/
 
         //back button
         button_back_notemenu.setOnClickListener{
