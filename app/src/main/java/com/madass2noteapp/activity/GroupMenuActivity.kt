@@ -9,9 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madass2noteapp.R
-import com.madass2noteapp.dataClasses.test
 import com.madass2noteapp.mainApp.MainApp
-import kotlinx.android.synthetic.main.activity_notetaker.*
 import kotlinx.android.synthetic.main.list_item.view.*
 import kotlinx.android.synthetic.main.menu_group_.*
 
@@ -27,9 +25,9 @@ class GroupMenuActivity  : AppCompatActivity(), testListener{
         app = application as MainApp //database acces
 
         //sets up recycler
-        val layoutManager = LinearLayoutManager(this)
+       /* val layoutManager = LinearLayoutManager(this)
         recycler_groups.layoutManager = layoutManager
-        recycler_groups.adapter = testAddapter(app.test, this)
+        recycler_groups.adapter = testAddapter(app.test, this)*/
 
         //back button
         button_back.setOnClickListener{
