@@ -2,11 +2,10 @@ package com.madass2noteapp.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.madass2noteapp.R
 import com.madass2noteapp.dataClasses.Group
 import com.madass2noteapp.mainApp.MainApp
-import kotlinx.android.synthetic.main.create_group.*
-import kotlinx.android.synthetic.main.create_note.*
 import kotlinx.android.synthetic.main.create_note.button_cancel
 import kotlinx.android.synthetic.main.create_note.button_save
 import kotlinx.android.synthetic.main.create_note.inputTitle_text
@@ -35,11 +34,12 @@ class CreateGroupActivity : AppCompatActivity() {
                     finish()
                 }
                 else {
-                    inputTitle_text.setText("group name already Exists")
+                    Toast.makeText(this,"group name already Exists", Toast.LENGTH_SHORT).show()
+
                 }
             }
             else {
-                inputTitle_text.setText("can not be blank")
+                Toast.makeText(this, "can not be blank", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -1,11 +1,8 @@
 package com.madass2noteapp.mainApp
 
 import android.app.Application
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.madass2noteapp.dataClasses.Group
 import com.madass2noteapp.interfaces.databaseInterface
-import java.io.File
 
 class MainApp : Application(), databaseInterface{
     var allGroups = ArrayList<Group>()
