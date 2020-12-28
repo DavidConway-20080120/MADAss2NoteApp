@@ -22,11 +22,12 @@ import kotlinx.android.synthetic.main.object_group.*
  */
 class NoteMenuActivity : AppCompatActivity(), NoteListener {
     lateinit var app : MainApp
+    var group :Group = Group()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_note)
         app = application as MainApp // database accsess
-        var group :Group = Group()
+
 
         if(intent.hasExtra("group_info")){
             val groupTitle = intent.extras?.getParcelable<Group>("group_info")?.title
@@ -52,6 +53,8 @@ class NoteMenuActivity : AppCompatActivity(), NoteListener {
     override fun onNoteClick(note: Note) {
         val intent = Intent(this,
             NoteObjectActivity::class.java)
+        intent.putExtra("group_info",group)
+        intent.putExtra("note_view",note)
         startActivity(intent);
         finish()
     }

@@ -1,5 +1,6 @@
 package com.madass2noteapp.activity
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,11 +8,8 @@ import android.speech.RecognizerIntent
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.madass2noteapp.R
-import com.madass2noteapp.dataClasses.Group
 import com.madass2noteapp.dataClasses.Note
 import com.madass2noteapp.mainApp.MainApp
-import kotlinx.android.synthetic.main.activity_notetaker.*
-import kotlinx.android.synthetic.main.create_note.*
 import kotlinx.android.synthetic.main.create_note.button_cancel
 import kotlinx.android.synthetic.main.create_note.button_save
 import kotlinx.android.synthetic.main.create_note.button_vtt
@@ -82,6 +80,23 @@ class CreateNoteActivity  : AppCompatActivity() {
         }
 
         setupGroupList()
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        //checks what the request code was
+        when(requestCode){
+            REQUEST_CODE_SPEECH_INPUT -> {
+                // if request was from text to speach
+                if(resultCode == Activity.RESULT_OK && data != null){
+                    //get the result and display it
+                    val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                    inputContent_text.setText(result?.get(0))
+                }
+            }
+        }
     }
 
     /**
