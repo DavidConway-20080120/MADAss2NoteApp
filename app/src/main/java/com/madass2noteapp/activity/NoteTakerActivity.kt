@@ -4,13 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.madass2noteapp.R
+import com.madass2noteapp.mainApp.MainApp
 import kotlinx.android.synthetic.main.activity_notetaker.*
 
 /**
  * main screen
  */
 class NoteTakerActivity : AppCompatActivity() {
+    lateinit var app : MainApp
     override fun onCreate(savedInstanceState: Bundle?) {
+        app = application as MainApp // database accsess
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notetaker) // not a error for some reason it wants to give it a cap T
 
@@ -39,6 +42,7 @@ class NoteTakerActivity : AppCompatActivity() {
         //button exit
         button_exit.setOnClickListener{
             finish();
+            app.save()
             System.exit(0);
         }
 

@@ -101,6 +101,7 @@ class NoteObjectActivity : AppCompatActivity() {
                         NoteMenuActivity::class.java)
                     intent.putExtra("group_info",group)
                     startActivity(intent);
+                    app.save()
                     finish()
                 }
                 else {
@@ -113,12 +114,13 @@ class NoteObjectActivity : AppCompatActivity() {
 
         }
 
-        //back button
+        //delete button
         button_delete.setOnClickListener{
             val intent = Intent(this,
                 NoteMenuActivity::class.java)
             intent.putExtra("group_info",group)
             group.notes.remove(note)
+            app.save()
             startActivity(intent);
             finish()
         }

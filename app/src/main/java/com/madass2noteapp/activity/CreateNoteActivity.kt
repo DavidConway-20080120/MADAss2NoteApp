@@ -44,6 +44,7 @@ class CreateNoteActivity  : AppCompatActivity() {
                     note.text = inputContent_text.text.toString()
                     app.createNote(group,note.copy())
                     setResult(AppCompatActivity.RESULT_OK)
+                    app.save()
                     finish()
                 }
                 else {

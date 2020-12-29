@@ -6,7 +6,8 @@ import com.madass2noteapp.mainApp.MainApp
 
 interface databaseInterface {
     fun createGroup(group:Group)
-
+    fun load()
+    fun save()
     fun createNote(group: Group, note: Note){
         group.notes.add(note)
     }

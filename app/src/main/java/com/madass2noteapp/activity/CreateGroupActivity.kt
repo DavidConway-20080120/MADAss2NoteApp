@@ -31,6 +31,7 @@ class CreateGroupActivity : AppCompatActivity() {
                     newGroup.title = inputTitle_text.text.toString()
                     app.createGroup(newGroup.copy())
                     setResult(AppCompatActivity.RESULT_OK)
+                    app.save()
                     finish()
                 }
                 else {
