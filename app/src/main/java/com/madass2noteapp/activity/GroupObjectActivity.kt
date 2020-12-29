@@ -28,7 +28,9 @@ class GroupObjectActivity : AppCompatActivity() {
             group = app.getGroup(groupTitle)!! // use the title of the group passed in to find group object in data base.
             inputTitle_text.setText(group.title)
         }
-        //bacl button
+        this.setTitle("${group.title}")
+
+        //back button
         button_back.setOnClickListener{
             val intent = Intent(this,
                 GroupMenuActivity::class.java)

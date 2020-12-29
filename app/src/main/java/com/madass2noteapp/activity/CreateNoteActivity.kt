@@ -5,7 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import com.madass2noteapp.R
 import com.madass2noteapp.dataClasses.Note
@@ -16,7 +19,6 @@ import kotlinx.android.synthetic.main.create_note.button_vtt
 import kotlinx.android.synthetic.main.create_note.inputContent_text
 import kotlinx.android.synthetic.main.create_note.inputTitle_text
 import kotlinx.android.synthetic.main.create_note.select_group
-import kotlinx.android.synthetic.main.object_note.*
 import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
@@ -32,6 +34,7 @@ class CreateNoteActivity  : AppCompatActivity() {
         setContentView(R.layout.create_note)
         app = application as MainApp //database acces
         var note = Note()
+        this.setTitle("Create Note")
 
         /**
          * save button
@@ -109,7 +112,27 @@ class CreateNoteActivity  : AppCompatActivity() {
             group.title?.let { allGroupsNames.add(it) }
         }
 
-        select_group.adapter = ArrayAdapter(applicationContext,android.R.layout.simple_expandable_list_item_1,allGroupsNames)
+        /**
+         * all to aline to center
+         */
+        val adapter:ArrayAdapter<String> = object: ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, allGroupsNames){
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view: TextView = super.getDropDownView(position, convertView, parent) as TextView
+
+                // spinner item text alignment center
+                view.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                return view
+            }
+
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view: TextView = super.getView(position, convertView, parent) as TextView
+                // spinner item text alignment center
+                view.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                return view
+            }
+        }
+
+        select_group.adapter = adapter
     }
 
 }

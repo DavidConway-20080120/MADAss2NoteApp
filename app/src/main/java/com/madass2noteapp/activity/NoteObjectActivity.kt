@@ -5,21 +5,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
 import com.madass2noteapp.R
 import com.madass2noteapp.dataClasses.Group
 import com.madass2noteapp.dataClasses.Note
 import com.madass2noteapp.mainApp.MainApp
-import kotlinx.android.synthetic.main.create_note.*
-import kotlinx.android.synthetic.main.list_item.view.*
-import kotlinx.android.synthetic.main.menu_note.*
-import kotlinx.android.synthetic.main.object_group.*
-import kotlinx.android.synthetic.main.object_note.*
 import kotlinx.android.synthetic.main.object_note.button_cancel
 import kotlinx.android.synthetic.main.object_note.button_delete
 import kotlinx.android.synthetic.main.object_note.button_save
@@ -58,6 +52,8 @@ class NoteObjectActivity : AppCompatActivity() {
             select_group.setSelection(app.allGroups.indexOf(group)) // sets the group selection to the corect group
 
         }
+
+        this.setTitle("${group.title}: ${note.title}")
         //cancel button
         button_cancel.setOnClickListener{
             val intent = Intent(this,
@@ -142,12 +138,33 @@ class NoteObjectActivity : AppCompatActivity() {
         }
     }
 
+
     fun setupGroupList(){
         var allGroupsNames = ArrayList<String>()
         for(group in app.allGroups){
             group.title?.let { allGroupsNames.add(it) }
         }
 
-        select_group.adapter = ArrayAdapter(applicationContext,android.R.layout.simple_expandable_list_item_1,allGroupsNames)
+        /**
+         * all to aline to center
+         */
+        val adapter:ArrayAdapter<String> = object: ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, allGroupsNames){
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view: TextView = super.getDropDownView(position, convertView, parent) as TextView
+
+                // spinner item text alignment center
+                view.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                return view
+            }
+
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view: TextView = super.getView(position, convertView, parent) as TextView
+                // spinner item text alignment center
+                view.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                return view
+            }
+        }
+
+        select_group.adapter = adapter
     }
 }

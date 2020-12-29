@@ -20,6 +20,7 @@ class CreateGroupActivity : AppCompatActivity() {
         setContentView(R.layout.create_group)
         app = application as MainApp //database acces
         var newGroup = Group()
+        this.setTitle("Create Group")
 
 
         /**

@@ -16,7 +16,7 @@ class NoteTakerActivity : AppCompatActivity() {
         app = application as MainApp // database accsess
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notetaker) // not a error for some reason it wants to give it a cap T
-
+        this.setTitle("Home")
         //gose to group menu
         button_group.setOnClickListener{
             val intent = Intent(this,

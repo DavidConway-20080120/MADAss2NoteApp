@@ -2,7 +2,6 @@ package com.madass2noteapp.interfaces
 
 import com.madass2noteapp.dataClasses.Group
 import com.madass2noteapp.dataClasses.Note
-import com.madass2noteapp.mainApp.MainApp
 
 interface databaseInterface {
     fun createGroup(group:Group)

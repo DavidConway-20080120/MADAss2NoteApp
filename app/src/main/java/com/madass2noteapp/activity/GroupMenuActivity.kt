@@ -24,6 +24,7 @@ class GroupMenuActivity  : AppCompatActivity(), GroupListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_group_)
         app = application as MainApp //database acces
+        this.setTitle("Select Group")
 
         //sets up recycler
         val layoutManager = LinearLayoutManager(this)

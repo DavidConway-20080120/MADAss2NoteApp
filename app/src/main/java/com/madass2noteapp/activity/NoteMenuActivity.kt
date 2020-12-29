@@ -13,9 +13,7 @@ import com.madass2noteapp.dataClasses.Group
 import com.madass2noteapp.dataClasses.Note
 import com.madass2noteapp.mainApp.MainApp
 import kotlinx.android.synthetic.main.list_item.view.*
-import kotlinx.android.synthetic.main.menu_group_.*
 import kotlinx.android.synthetic.main.menu_note.*
-import kotlinx.android.synthetic.main.object_group.*
 
 /**
  * list all notes in curent group
@@ -34,6 +32,7 @@ class NoteMenuActivity : AppCompatActivity(), NoteListener {
             group = app.getGroup(groupTitle)!! // use the title of the group passed in to find group object in data base.
         }
 
+        this.setTitle("${group.title} Notes")
         // sets up recycler
         val layoutManager = LinearLayoutManager(this)
         recycler_notes.layoutManager = layoutManager
