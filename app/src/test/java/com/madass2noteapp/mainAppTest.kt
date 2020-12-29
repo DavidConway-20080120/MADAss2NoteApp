@@ -1,19 +1,20 @@
 package com.madass2noteapp
 
-import androidx.test.platform.app.InstrumentationRegistry
 import com.madass2noteapp.dataClasses.Group
 import com.madass2noteapp.dataClasses.Note
 import com.madass2noteapp.mainApp.MainApp
+import junit.framework.Assert.assertEquals
+import junit.framework.Assert.assertNull
 import org.junit.Assert
 import org.junit.Test
 
-class mainAppTest {
+public class mainAppTest {
     @Test
     fun createGroupTest() {
         val testMainApp = MainApp()
         val testGroup = Group("test")
         testMainApp.createGroup(testGroup)
-        Assert.assertEquals("title", testMainApp.allGroups[0].title)
+        assertEquals("test", testMainApp.allGroups[0].title)
     }
 
     @Test
@@ -22,7 +23,7 @@ class mainAppTest {
         val testGroup = Group("test")
         testMainApp.createGroup(testGroup)
         val testGet = testMainApp.getGroup(testGroup.title)
-        Assert.assertEquals(testGroup, testGet)
+        assertEquals(testGroup, testGet)
     }
 
     @Test
@@ -31,7 +32,7 @@ class mainAppTest {
         val testGroup = Group("test")
         testMainApp.createGroup(testGroup)
         val testGet = testMainApp.getGroup("something")
-        Assert.assertNull(testGet)
+        assertNull(testGet)
     }
 
     @Test
@@ -40,7 +41,7 @@ class mainAppTest {
         val testGroup = Group("test")
         val testNote = Note("test note")
         testMainApp.createNote(testGroup, testNote)
-        Assert.assertEquals("test Note", testGroup.notes[0].title)
+        assertEquals("test note", testGroup.notes[0].title)
     }
 
     @Test
@@ -51,8 +52,8 @@ class mainAppTest {
         val testNote = Note("test note")
         testMainApp.createNote(testGroup,testNote)
         testMainApp.noteSwap(testNote,testGroup,testGroup2)
-        Assert.assertEquals(testNote,testGroup2.notes[0])
-        Assert.assertNull(testGroup.notes[0])
+        assertEquals(testNote,testGroup2.notes[0])
+        assertEquals(0,testGroup.notes.size)
     }
 
     @Test
@@ -62,7 +63,7 @@ class mainAppTest {
         val testNote = Note("test note")
         testMainApp.createNote(testGroup,testNote)
         val getNote = testMainApp.getNote(testGroup, "test note")
-        Assert.assertEquals(testNote,getNote)
+        assertEquals(testNote,getNote)
     }
 
     @Test
@@ -72,6 +73,6 @@ class mainAppTest {
         val testNote = Note("test note")
         testMainApp.createNote(testGroup,testNote)
         val getNote = testMainApp.getNote(testGroup, "something")
-        Assert.assertNull(getNote)
+        assertNull(getNote)
     }
 }
